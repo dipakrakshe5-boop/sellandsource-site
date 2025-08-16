@@ -3,34 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vendors - Sell & Source</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link href="style.css" rel="stylesheet">
+  <title>Vendors | Sell & Source</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="font-sans bg-gray-50 text-gray-900">
-  <header class="p-4 shadow bg-white flex justify-between items-center">
-    <img src="assets/logo.png" alt="Sell & Source Logo" class="h-10">
+<body>
+  <header>
+    <img src="assets/logo.png" alt="Sell & Source Logo" class="logo">
     <nav>
-      <a href="index.html" class="px-3">Home</a>
-      <a href="about.html" class="px-3">About</a>
-      <a href="vendors.html" class="px-3">Vendors</a>
-      <a href="contact.html" class="px-3">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="vendors.html" class="active">Vendors</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="p-8">
-    <h1 class="text-3xl font-bold mb-4">Vendor Registration</h1>
-    <form action="https://formspree.io/f/mzzzpnlp" method="POST" class="space-y-4 max-w-lg mx-auto">
-      <input type="text" name="name" placeholder="Your Name" required class="w-full p-2 border rounded">
-      <input type="email" name="email" placeholder="Your Email" required class="w-full p-2 border rounded">
-      <input type="text" name="company" placeholder="Company Name" class="w-full p-2 border rounded">
-      <textarea name="products" placeholder="Products/Services" class="w-full p-2 border rounded"></textarea>
-      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded">Submit</button>
-    </form>
+  <main>
+    <section>
+      <h1>Vendor Registration</h1>
+      <form>
+        <label for="name">Vendor Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="product">Product / Service:</label>
+        <input type="text" id="product" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone">
+
+        <button type="submit">Register</button>
+      </form>
+    </section>
   </main>
 
-  <footer class="p-4 bg-gray-100 text-center mt-8">
-    © 2025 Sell & Source. All Rights Reserved.
+  <footer>
+    <p>© 2025 Sell & Source</p>
   </footer>
 </body>
 </html>
