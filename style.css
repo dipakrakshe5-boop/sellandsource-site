@@ -1,3 +1,71 @@
-body { font-family: Arial, sans-serif; }
-a { text-decoration: none; color: #1f2937; }
-a:hover { color: #2563eb; }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+  color: #333;
+}
+
+header {
+  background: #1a73e8;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  height: 50px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+nav a.active, nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: #e8f0fe;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #1a73e8;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+form label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input, form textarea, form button {
+  padding: 10px;
+  margin-top: 5px;
+}
+
+form button {
+  background: #1a73e8;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
