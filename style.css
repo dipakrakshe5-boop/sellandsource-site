@@ -1,77 +1,62 @@
-body {
-  font-family: Arial, sans-serif;
+body, html {
   margin: 0;
   padding: 0;
-  background: #f7f7f7;
-  color: #333;
-}
-
-header {
-  background: #1a73e8;
-  color: white;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-header .logo {
-  height: 50px;
-}
-
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-nav a.active, nav a:hover {
-  text-decoration: underline;
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
 }
 
 .hero {
+  background: url('background.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
   text-align: center;
-  padding: 50px 20px;
-  background: #e8f0fe;
+  color: white;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #b3ff00;
+  border: 2px solid #b3ff00;
+  padding: 0 10px;
+}
+
+.tagline {
+  display: inline-block;
+  background: #b3ff00;
+  color: black;
+  padding: 5px 15px;
+  margin: 20px 0;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.buttons {
+  margin-top: 30px;
 }
 
 .btn {
   display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #1a73e8;
+  margin: 0 15px;
+  padding: 12px 25px;
+  background: rgba(0, 119, 255, 0.9);
   color: white;
-  border-radius: 5px;
   text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  margin: auto;
-}
-
-form label {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-form input, form textarea, form button {
-  padding: 10px;
-  margin-top: 5px;
-}
-
-form button {
-  background: #1a73e8;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.logo {
-  height: 50px;
-  margin-right: 10px;
-  vertical-align: middle;
+.btn:hover {
+  background: #005bbb;
+  transform: scale(1.05);
 }
