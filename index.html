@@ -1,196 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SellAndSource - Technology Partnership Platform</title>
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #f8fafc;
-            --text: #1e293b;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f1f5f9;
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 1rem 2rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            min-width: 250px;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            background-color: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--secondary);
-            transform: translateY(-2px);
-        }
-        
-        .features {
-            padding: 5rem 0;
-            background: white;
-        }
-        
-        .features h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary);
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature-card {
-            background: var(--secondary);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        
-        .feature-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        footer {
-            background: var(--text);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                padding: 3rem 0;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sell & Source</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>SellAndSource</h1>
-        </div>
-    </header>
-    
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="assets/logo.png" alt="Sell & Source Logo" /></a>
+    </div>
+    <div class="site-name">Sell & Source</div>
+  </header>
+
+  <main>
     <section class="hero">
-        <div class="container">
-            <h1>Connecting Technology with Business Opportunities</h1>
-            <p>SellAndSource is the premier platform where technology providers and OEMs come together to create powerful partnerships. Share your innovations and find the perfect technological solutions for your business needs.</p>
-            
-            <div class="cta-buttons">
-                <a href="/oem" class="btn btn-primary">Continue as OEM</a>
-                <a href="/vendor" class="btn btn-secondary">Continue as Vendor</a>
-            </div>
-        </div>
+      <h1>Welcome to Sell & Source</h1>
+      <p>Connecting OEMs with Trusted Vendors</p>
+      <a href="#register" class="cta-button">Get Started</a>
     </section>
-    
-    <section class="features">
-        <div class="container">
-            <h2>Why Choose SellAndSource?</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>For Technology Vendors</h3>
-                    <p>Showcase your innovations to a global network of OEMs looking for cutting-edge solutions to integrate into their products.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>For OEMs</h3>
-                    <p>Discover and source the latest technologies to enhance your products and stay ahead of the competition.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Secure Platform</h3>
-                    <p>Our verified partnership system ensures you connect with trusted businesses and protect your intellectual property.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 SellAndSource. All rights reserved.</p>
-        </div>
-    </footer>
+  </main>
+
+  <footer>
+    <p>© 2025 Sell & Source. All rights reserved.</p>
+  </footer>
 </body>
 </html>

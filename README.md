@@ -1,16 +1,15 @@
 # Sell & Source Website
 
-This is the official website for Sell & Source.
+This is the website for Sell & Source.
 
-## Pages
-- Home (index.html)
-- About (about.html)
-- Vendors (vendors.html)
-- Contact (contact.html)
+## Deployment Steps
 
-## Deployment
-1. Upload these files to a GitHub repo.
-2. Connect the repo to Netlify.
-3. Done!
+1. Push this code to a **GitHub repository**.
+2. Go to [Netlify](https://app.netlify.com/), click **New Site from Git**.
+3. Connect your GitHub account and select the repository.
+4. Set branch to **main** (or master).
+5. Netlify will build and deploy automatically.
+6. Go to your Netlify project settings → Domain management → Add custom domain.
+7. Enter **sellandsource.com** and update DNS in Spaceship to point to Netlify.
 
-Forms are powered by [Formspree](https://formspree.io).
+Your site will now be live! 🚀
