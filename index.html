@@ -1,509 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sell & Source - Business Solutions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 10;
-            padding: 10;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            color: #333;
-            line-height: 1.6;
-            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-            min-height: 100vh;
-        }
-        
-        .split-container {
-            display: flex;
-            min-height: 100vh;
-        }
-        
-        /* Left Content Section */
-        .left-section {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: white;
-        }
-        
-        .content-wrapper {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Right Image Section */
-        .right-section {
-            flex: 1;
-            overflow: hidden;
-            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .image-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Header & Navigation */
-        header {
-            margin-bottom: 40px;
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .logo {
-            font-size: 32px;
-            font-weight: 800;
-            color: #2563eb;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo span {
-            color: #10b981;
-        }
-        
-        .logo-icon {
-            margin-right: 10px;
-            font-size: 28px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 25px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #4b5563;
-            font-weight: 600;
-            transition: color 0.3s;
-            font-size: 16px;
-        }
-        
-        .nav-links a:hover {
-            color: #2563eb;
-        }
-        
-        .sign-up-btn {
-            background: linear-gradient(to right, #2563eb, #3b82f6);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .sign-up-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
-        }
-        
-        /* Hero Content */
-        .hero-content h1 {
-            font-size: 3.2rem;
-            margin-bottom: 25px;
-            color: #1f2937;
-            line-height: 1.2;
-            font-weight: 800;
-        }
-        
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #6b7280;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-        
-        .btn-container {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 16px 35px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(to right, #2563eb, #3b82f6);
-            color: white;
-            border: none;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            color: #2563eb;
-            border: 2px solid #2563eb;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #eef2ff;
-            transform: translateY(-3px);
-        }
-        
-        /* Features Section */
-        .features {
-            margin-top: 70px;
-        }
-        
-        .section-title {
-            margin-bottom: 40px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.3rem;
-            color: #1f2937;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-        
-        .section-title p {
-            color: #6b7280;
-            font-size: 1.1rem;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .feature-card {
-            background-color: #f9fafb;
-            padding: 30px 25px;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: #2563eb;
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #1f2937;
-        }
-        
-        .feature-card p {
-            color: #6b7280;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-        
-        /* Footer */
-        footer {
-            margin-top: 70px;
-            padding-top: 40px;
-            border-top: 1px solid #e5e7eb;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 35px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            color: #1f2937;
-        }
-        
-        .footer-column p {
-            margin-bottom: 20px;
-            color: #6b7280;
-            line-height: 1.6;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: #6b7280;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 1rem;
-        }
-        
-        .footer-column ul li a:hover {
-            color: #2563eb;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-icons a {
-            color: #6b7280;
-            font-size: 1.2rem;
-            transition: color 0.3s, transform 0.3s;
-        }
-        
-        .social-icons a:hover {
-            color: #2563eb;
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #e5e7eb;
-            color: #9ca3af;
-            font-size: 1rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .split-container {
-                flex-direction: column;
-            }
-            
-            .right-section {
-                order: -1;
-                height: 50vh;
-            }
-            
-            .left-section {
-                padding: 30px;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding-bottom: 15px;
-            }
-            
-            .nav-links {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .nav-links li {
-                margin: 8px 15px;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.3rem;
-            }
-            
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-            
-            .btn {
-                padding: 14px 30px;
-                font-size: 1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .feature-card {
-                padding: 25px 20px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 26px;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            .btn-container {
-                flex-direction: column;
-            }
-            
-            .btn {
-                width: 100%;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell & Source - Business Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f3f2ef; /* LinkedIn-like background */
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #0a66c2; /* LinkedIn blue */
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links li {
+      margin-left: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #0a66c2;
+    }
+
+    .sign-up-btn {
+      background: #0a66c2;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .sign-up-btn:hover {
+      background: #004182;
+    }
+
+    /* Hero Section (LinkedIn style) */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 0;
+    }
+
+    .hero-content {
+      flex: 1;
+      padding-right: 40px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      color: #1f2937;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #6b7280;
+      margin-bottom: 25px;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #0a66c2;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #004182;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #0a66c2;
+      color: #0a66c2;
+    }
+
+    .btn-secondary:hover {
+      background: #e8f3fc;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    /* Footer */
+    footer {
+      background: #1f2937;
+      color: #ddd;
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 20px;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-column ul li a:hover {
+      color: #fff;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-icons a {
+      color: #ccc;
+      font-size: 1.2rem;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 20px;
+      border-top: 1px solid #444;
+      padding-top: 15px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @media(max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="split-container">
-        <!-- Left Content Section -->
-        <div class="left-section">
-            <div class="content-wrapper">
-                <header>
-                    <nav class="navbar">
-                        <div class="logo">
-                            <i class="fas fa-handshake logo-icon"></i>
-                            Sell & <span>Source</span>
-                        </div>
-                        <ul class="nav-links">
-                            <li><a href="#" class="active">Home</a></li>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#" class="sign-up-btn">Sign up</a></li>
-                        </ul>
-                    </nav>
-                </header>
-
-                <div class="hero-content">
-                    <h1>We are with you at every step of your business</h1>
-                    <p>Connect with global partners, source products, and grow your business with our platform. From startups to enterprises, we provide the tools you need to succeed in today's competitive market.</p>
-                    <div class="btn-container">
-                        <a href="#" class="btn btn-primary">Continue as OEM</a>
-                        <a href="#" class="btn btn-secondary">Continue as vendor</a>
-                    </div>
-                </div>
-
-                <section class="features">
-                    <div class="section-title">
-                        <h2>Why Choose Sell & Source</h2>
-                        <p>We provide a comprehensive platform for businesses to connect, source products, and expand their reach globally.</p>
-                    </div>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-globe-americas"></i>
-                            </div>
-                            <h3>Global Network</h3>
-                            <p>Connect with businesses and partners from around the world to expand your reach.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-search-dollar"></i>
-                            </div>
-                            <h3>Product Sourcing</h3>
-                            <p>Find reliable suppliers and source quality products for your business needs.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3>Business Growth</h3>
-                            <p>Access resources and tools to help your business grow and thrive in the market.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <footer>
-                    <div class="footer-content">
-                        <div class="footer-column">
-                            <h3>Sell & Source</h3>
-                            <p>Connecting businesses worldwide for better sourcing and selling opportunities.</p>
-                            <div class="social-icons">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="footer-column">
-                            <h3>Quick Links</h3>
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Events</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Sign up</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-column">
-                            <h3>Contact Us</h3>
-                            <ul>
-                                <li><i class="fas fa-map-marker-alt"></i> 123 Business Avenue</li>
-                                <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                                <li><i class="fas fa-envelope"></i> info@sellandsource.com</li>
-                                <li><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="copyright">
-                        <p>&copy; 2023 Sell & Source. All rights reserved.</p>
-                    </div>
-                </footer>
-            </div>
-        </div>
-
-        <!-- Right Image Section -->
-        <div class="right-section">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Business professionals discussing at a table">
-            </div>
-        </div>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">Sell & Source</div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#" class="sign-up-btn">Join Now</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero">
+      <div class="hero-content">
+        <h1>Connect, Source, and Grow Your Business</h1>
+        <p>Build lasting partnerships and discover global opportunities. Sell & Source is your trusted platform for business growth.</p>
+        <div class="btn-container">
+          <a href="#" class="btn btn-primary">Continue as Client</a>
+          <a href="#" class="btn btn-secondary">Continue as Vendor</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="a1e43ffa-3d6d-4349-b846-44e2b32b48c9.png" alt="Business handshake meeting">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Sell & Source</h3>
+          <p>Connecting businesses worldwide for better sourcing and selling opportunities.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</li>
+            <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+            <li><i class="fas fa-envelope"></i> info@sellandsource.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Sell & Source. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
