@@ -16,12 +16,13 @@
         body {
             color: #333;
             line-height: 1.6;
-            background-color: #f8f9fa;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            min-height: 100vh;
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -29,7 +30,7 @@
         /* Header & Navigation */
         header {
             background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -43,13 +44,20 @@
         }
         
         .logo {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 32px;
+            font-weight: 800;
             color: #2563eb;
+            display: flex;
+            align-items: center;
         }
         
         .logo span {
             color: #10b981;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 28px;
         }
         
         .nav-links {
@@ -58,14 +66,15 @@
         }
         
         .nav-links li {
-            margin-left: 30px;
+            margin-left: 35px;
         }
         
         .nav-links a {
             text-decoration: none;
             color: #4b5563;
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.3s;
+            font-size: 17px;
         }
         
         .nav-links a:hover {
@@ -73,24 +82,25 @@
         }
         
         .sign-up-btn {
-            background-color: #2563eb;
+            background: linear-gradient(to right, #2563eb, #3b82f6);
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 25px;
+            border-radius: 8px;
             font-weight: 600;
+            transition: all 0.3s;
         }
         
         .sign-up-btn:hover {
-            background-color: #1d4ed8;
-            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
         }
         
         /* Hero Section */
         .hero {
             display: flex;
             align-items: center;
-            padding: 80px 0;
-            min-height: 80vh;
+            padding: 60px 0;
+            min-height: 85vh;
         }
         
         .hero-content {
@@ -100,45 +110,68 @@
         
         .hero-image {
             flex: 1;
-            text-align: center;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            margin-left: 30px;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.03);
         }
         
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
             color: #1f2937;
             line-height: 1.2;
+            font-weight: 800;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #6b7280;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.6;
         }
         
         .btn-container {
             display: flex;
-            gap: 15px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         
         .btn {
-            padding: 15px 30px;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1rem;
+            padding: 16px 35px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
         
         .btn-primary {
-            background-color: #2563eb;
+            background: linear-gradient(to right, #2563eb, #3b82f6);
             color: white;
             border: none;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
         }
         
         .btn-primary:hover {
-            background-color: #1d4ed8;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
         }
         
         .btn-secondary {
@@ -149,94 +182,95 @@
         
         .btn-secondary:hover {
             background-color: #eef2ff;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
         }
         
         /* Features Section */
         .features {
-            padding: 80px 0;
+            padding: 90px 0;
             background-color: #fff;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: #1f2937;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: 800;
         }
         
         .section-title p {
             color: #6b7280;
             max-width: 700px;
             margin: 0 auto;
+            font-size: 1.2rem;
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
         }
         
         .feature-card {
             background-color: #f9fafb;
-            padding: 30px;
-            border-radius: 10px;
+            padding: 40px 30px;
+            border-radius: 12px;
             text-align: center;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #2563eb;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
             color: #1f2937;
         }
         
         .feature-card p {
             color: #6b7280;
+            line-height: 1.6;
         }
         
         /* Footer */
         footer {
-            background-color: #1f2937;
+            background: linear-gradient(to right, #1f2937, #111827);
             color: #f9fafb;
-            padding: 60px 0 30px;
+            padding: 70px 0 30px;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 45px;
+            margin-bottom: 50px;
         }
         
         .footer-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
             color: #fff;
         }
         
         .footer-column p {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #d1d5db;
+            line-height: 1.6;
         }
         
         .footer-column ul {
@@ -244,13 +278,14 @@
         }
         
         .footer-column ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-column ul li a {
             color: #d1d5db;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 1.05rem;
         }
         
         .footer-column ul li a:hover {
@@ -259,27 +294,56 @@
         
         .social-icons {
             display: flex;
-            gap: 15px;
+            gap: 18px;
         }
         
         .social-icons a {
             color: #d1d5db;
-            font-size: 1.2rem;
-            transition: color 0.3s;
+            font-size: 1.4rem;
+            transition: color 0.3s, transform 0.3s;
         }
         
         .social-icons a:hover {
             color: #fff;
+            transform: translateY(-3px);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 40px;
             border-top: 1px solid #374151;
             color: #9ca3af;
+            font-size: 1.05rem;
         }
         
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 0;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+            
+            .hero-image {
+                width: 100%;
+                margin-left: 0;
+                height: 500px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .btn-container {
+                justify-content: center;
+            }
+        }
+        
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -287,32 +351,54 @@
             }
             
             .nav-links {
-                margin-top: 15px;
+                margin-top: 20px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
             
             .nav-links li {
-                margin: 5px 10px;
-            }
-            
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 40px 0;
-            }
-            
-            .hero-content {
-                padding-right: 0;
-                margin-bottom: 40px;
-            }
-            
-            .btn-container {
-                justify-content: center;
+                margin: 8px 15px;
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .feature-card {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 26px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
             }
         }
     </style>
@@ -322,7 +408,10 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <div class="logo">Sell & <span>Source</span></div>
+                <div class="logo">
+                    <i class="fas fa-handshake logo-icon"></i>
+                    Sell & <span>Source</span>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#" class="active">Home</a></li>
                     <li><a href="#">About us</a></li>
@@ -339,14 +428,14 @@
         <div class="container">
             <div class="hero-content">
                 <h1>We are with you at every step of your business</h1>
-                <p>Connect with global partners, source products, and grow your business with our platform.</p>
+                <p>Connect with global partners, source products, and grow your business with our platform. From startups to enterprises, we provide the tools you need to succeed.</p>
                 <div class="btn-container">
-                    <a href="#" class="btn btn-primary">Continue as client</a>
+                    <a href="#" class="btn btn-primary">Continue as OEM</a>
                     <a href="#" class="btn btn-secondary">Continue as vendor</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Two people discussing business">
+                <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Two professionals discussing business at a table">
             </div>
         </div>
     </section>
@@ -356,29 +445,29 @@
         <div class="container">
             <div class="section-title">
                 <h2>Why Choose Sell & Source</h2>
-                <p>We provide a comprehensive platform for businesses to connect, source products, and expand their reach.</p>
+                <p>We provide a comprehensive platform for businesses to connect, source products, and expand their reach globally.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-handshake"></i>
+                        <i class="fas fa-globe-americas"></i>
                     </div>
                     <h3>Global Network</h3>
-                    <p>Connect with businesses and partners from around the world to expand your reach.</p>
+                    <p>Connect with businesses and partners from around the world to expand your reach and discover new opportunities.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-search-dollar"></i>
                     </div>
                     <h3>Product Sourcing</h3>
-                    <p>Find reliable suppliers and source quality products for your business needs.</p>
+                    <p>Find reliable suppliers and source quality products for your business needs with our verified partner network.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Business Growth</h3>
-                    <p>Access resources and tools to help your business grow and thrive in the market.</p>
+                    <p>Access resources and tools to help your business grow and thrive in today's competitive market environment.</p>
                 </div>
             </div>
         </div>
@@ -390,7 +479,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Sell & Source</h3>
-                    <p>Connecting businesses worldwide for better sourcing and selling opportunities.</p>
+                    <p>Connecting businesses worldwide for better sourcing and selling opportunities. Our platform makes global commerce accessible to everyone.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -405,14 +494,15 @@
                         <li><a href="#">About us</a></li>
                         <li><a href="#">Events</a></li>
                         <li><a href="#">Contact</a></li>
+                        <li><a href="#">Sign up</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                        <li><i class="fas fa-envelope"></i> info@sellandsource.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Pune </li>
+                        <li><i class="fas fa-envelope"></i> sellandsource6@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</li>
                     </ul>
                 </div>
             </div>
