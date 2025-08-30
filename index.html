@@ -63,7 +63,7 @@
     }
 
     .nav-links li {
-      margin-left: 25px;
+      margin-left: 15px;
     }
 
     .nav-links a {
@@ -71,8 +71,12 @@
       color: #555;
       font-weight: 500;
       transition: color 0.3s;
-      padding: 8px 16px;
+      padding: 8px 12px;
       border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
     }
 
     .nav-links a:hover {
@@ -593,12 +597,12 @@
           <span></span>
         </div>
         <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#" onclick="openModal('aboutModal')">About</a></li>
-          <li><a href="#" onclick="openModal('contactModal')">Contact</a></li>
-          <li><a href="#" class="sign-up-btn" onclick="openModal('signupModal')">Join Now</a></li>
+          <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+          <li><a href="#how-it-works"><i class="fas fa-cogs"></i> How It Works</a></li>
+          <li><a href="#" onclick="openModal('aboutModal')"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="#" onclick="openModal('contactModal')"><i class="fas fa-envelope"></i> Contact</a></li>
+          <li><a href="#" class="sign-up-btn" onclick="openModal('signupModal')"><i class="fas fa-user-plus"></i> Join Now</a></li>
         </ul>
       </nav>
     </div>
