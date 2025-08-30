@@ -70,12 +70,6 @@
       object-fit: contain;
     }
 
-    .nav-links {
-      display: flex;
-      list-style: none;
-      align-items: center;
-    }
-
     .nav-center li {
       margin: 0 15px;
     }
@@ -93,6 +87,7 @@
       gap: 4px;
       font-size: 0.85rem;
       text-align: center;
+      cursor: pointer;
     }
 
     .nav-center a i {
@@ -134,13 +129,23 @@
       transition: 0.3s;
     }
 
+    /* Page Content */
+    .page {
+      display: none;
+      min-height: calc(100vh - 200px);
+    }
+
+    .page.active {
+      display: block;
+    }
+
     /* Hero Section */
     .hero {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 80px 0;
-      background: linear-gradient(rgba(100, 150, 255, 0.6), rgba(70, 130, 230, 0.6)), url('background_Latest1.png');
+      background: linear-gradient(rgba(100, 150, 255, 0.6), rgba(70, 130, 230, 0.6)), url('Background_Latest.png');
       background-size: cover;
       background-position: center 30%;
       background-repeat: no-repeat;
@@ -230,15 +235,44 @@
       opacity: 0.8;
     }
 
-    .hero-image {
-      flex: 1;
+    /* Page Styles */
+    .page-content {
+      padding: 60px 0;
+      background: #fff;
+    }
+
+    .page-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #1f2937;
       text-align: center;
     }
 
-    .hero-image img {
-      max-width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    .page-content h2 {
+      font-size: 2rem;
+      margin: 40px 0 20px;
+      color: #0066cc;
+    }
+
+    .page-content h3 {
+      font-size: 1.5rem;
+      margin: 30px 0 15px;
+      color: #374151;
+    }
+
+    .page-content p {
+      margin-bottom: 20px;
+      color: #6b7280;
+      font-size: 1.1rem;
+    }
+
+    .page-content ul {
+      margin: 20px 0 20px 40px;
+      color: #6b7280;
+    }
+
+    .page-content li {
+      margin-bottom: 10px;
     }
 
     /* Features Section */
@@ -300,6 +334,71 @@
       color: #6b7280;
     }
 
+    /* Pricing Cards */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 15px;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .pricing-card:hover {
+      border-color: #0066cc;
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+    .pricing-card.featured {
+      border-color: #0066cc;
+      background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+    }
+
+    .plan-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1f2937;
+      margin-bottom: 10px;
+    }
+
+    .plan-price {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #0066cc;
+      margin-bottom: 5px;
+    }
+
+    .plan-period {
+      color: #6b7280;
+      margin-bottom: 30px;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .plan-features li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .plan-features li i {
+      color: #10b981;
+      margin-right: 10px;
+    }
+
     /* How it Works */
     .how-it-works {
       padding: 80px 0;
@@ -346,6 +445,42 @@
 
     .step p {
       color: #6b7280;
+    }
+
+    /* FAQ Section */
+    .faq-item {
+      background: #fff;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px;
+      background: #f8fafc;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .faq-question:hover {
+      background: #e2e8f0;
+    }
+
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .faq-answer.active {
+      padding: 20px;
+      max-height: 200px;
     }
 
     /* CTA Section */
@@ -399,6 +534,7 @@
       color: #ccc;
       text-decoration: none;
       transition: color 0.3s;
+      cursor: pointer;
     }
 
     .footer-column ul li a:hover {
@@ -443,12 +579,14 @@
 
     .modal-content {
       background-color: #fff;
-      margin: 10% auto;
+      margin: 5% auto;
       padding: 30px;
       border-radius: 15px;
       width: 90%;
       max-width: 500px;
       position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
     .close {
@@ -516,17 +654,59 @@
       background: #0052a3;
     }
 
+    /* Success message */
+    .success-message {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
     /* Responsive Design */
     @media(max-width: 768px) {
-      .hero {
+      .nav-center {
+        display: none;
         flex-direction: column;
-        text-align: center;
-        padding: 60px 0;
+        position: static;
+        transform: none;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin-top: 20px;
       }
-      
-      .hero-content {
-        padding-right: 0;
-        margin-bottom: 40px;
+
+      .nav-center.active {
+        display: flex;
+      }
+
+      .nav-center li {
+        margin: 10px 0;
+        width: 100%;
+      }
+
+      .nav-center a {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-right {
+        position: absolute;
+        right: 60px;
+      }
+
+      .hero {
+        padding: 60px 0;
+        text-align: center;
       }
 
       .hero h1 {
@@ -540,30 +720,7 @@
 
       .hero-stats {
         justify-content: center;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        padding: 20px;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links li {
-        margin: 10px 0;
-      }
-
-      .menu-toggle {
-        display: flex;
+        gap: 20px;
       }
     }
 
@@ -581,17 +738,6 @@
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
-    }
-
-    /* Success message */
-    .success-message {
-      background: #d4edda;
-      border: 1px solid #c3e6cb;
-      color: #155724;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      display: none;
     }
 
     /* Animations */
@@ -620,12 +766,18 @@
         <div class="logo">
           <img src="Final logo.png" alt="Sell & Source Logo">
         </div>
-        <ul class="nav-center">
-          <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-          <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
-          <li><a href="#how-it-works"><i class="fas fa-cogs"></i> How It Works</a></li>
-          <li><a href="#" onclick="openModal('aboutModal')"><i class="fas fa-info-circle"></i> About</a></li>
-          <li><a href="#" onclick="openModal('contactModal')"><i class="fas fa-envelope"></i> Contact</a></li>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-center" id="navLinks">
+          <li><a onclick="showPage('home')"><i class="fas fa-home"></i> Home</a></li>
+          <li><a onclick="showPage('features')"><i class="fas fa-star"></i> Features</a></li>
+          <li><a onclick="showPage('how-it-works')"><i class="fas fa-cogs"></i> How It Works</a></li>
+          <li><a onclick="showPage('pricing')"><i class="fas fa-tags"></i> Pricing</a></li>
+          <li><a onclick="showPage('about')"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
         <div class="nav-right">
           <a href="#" class="sign-up-btn" onclick="openModal('signupModal')">Join Now</a>
@@ -634,117 +786,288 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="container hero">
-      <div class="hero-content">
-        <h1>Connect OEMs & Vendors Globally</h1>
-        <p>The premier B2B platform for manufacturers and suppliers. Streamline sourcing, discover verified partners, and accelerate business growth worldwide.</p>
-        <div class="btn-container">
-          <a href="#" class="btn btn-primary" onclick="openModal('signupModal', 'oem')">
-            <i class="fas fa-industry"></i> I'm an OEM
-          </a>
-          <a href="#" class="btn btn-secondary" onclick="openModal('signupModal', 'vendor')">
-            <i class="fas fa-truck"></i> I'm a Vendor
-          </a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Active OEMs</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">2,000+</span>
-            <span class="stat-label">Verified Vendors</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">50+</span>
-            <span class="stat-label">Countries</span>
+  <!-- Home Page -->
+  <div id="home" class="page active">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero">
+        <div class="hero-content">
+          <h1>Connect OEMs & Vendors Globally</h1>
+          <p>The premier B2B platform for manufacturers and suppliers. Streamline sourcing, discover verified partners, and accelerate business growth worldwide.</p>
+          <div class="btn-container">
+            <a href="#" class="btn btn-primary" onclick="openModal('contactModal')">Contact Sales</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <div class="container">
-      <h2>Why Choose Sell & Source?</h2>
-      <p class="features-subtitle">Powerful tools and features designed to streamline your sourcing and selling processes</p>
-      <div class="features-grid">
-        <div class="feature-card animate-on-scroll">
-          <i class="fas fa-shield-alt feature-icon"></i>
-          <h3>Verified Partners</h3>
-          <p>All OEMs and vendors undergo thorough verification including business licenses, certifications, and quality assessments.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <i class="fas fa-search feature-icon"></i>
-          <h3>Smart Matching</h3>
-          <p>AI-powered matching algorithm connects you with the most relevant partners based on your requirements and industry.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <i class="fas fa-globe feature-icon"></i>
-          <h3>Global Reach</h3>
-          <p>Access manufacturers and suppliers from over 50 countries with real-time communication and translation support.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <i class="fas fa-chart-line feature-icon"></i>
-          <h3>Market Insights</h3>
-          <p>Get detailed market analytics, pricing trends, and supplier performance data to make informed decisions.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <i class="fas fa-lock feature-icon"></i>
-          <h3>Secure Transactions</h3>
-          <p>End-to-end encryption, secure payment processing, and comprehensive dispute resolution systems.</p>
-        </div>
-        <div class="feature-card animate-on-scroll">
-          <i class="fas fa-headset feature-icon"></i>
-          <h3>24/7 Support</h3>
-          <p>Dedicated support team available around the clock to assist with onboarding, technical issues, and business guidance.</p>
+  <!-- About Page -->
+  <div id="about" class="page">
+    <section class="page-content">
+      <div class="container">
+        <h1>About Sell & Source</h1>
+        
+        <h2>Our Mission</h2>
+        <p>To revolutionize global B2B commerce by creating the most trusted, efficient, and comprehensive platform connecting Original Equipment Manufacturers (OEMs) with qualified vendors and suppliers worldwide.</p>
+        
+        <h2>Our Story</h2>
+        <p>Founded in 2025, Sell & Source emerged from the recognition that traditional sourcing methods were inefficient, time-consuming, and often unreliable. Our founders, with decades of experience in manufacturing and supply chain management, envisioned a digital platform that would transform how businesses discover, evaluate, and partner with each other.</p>
+        
+        <h2>What Sets Us Apart</h2>
+        <ul>
+          <li><strong>Rigorous Verification:</strong> Every company undergoes comprehensive background checks, certification reviews, and quality assessments before joining our platform.</li>
+          <li><strong>AI-Powered Matching:</strong> Our proprietary algorithm analyzes requirements, capabilities, and compatibility to suggest the best potential partnerships.</li>
+          <li><strong>Global Expertise:</strong> Local market knowledge combined with international reach, supporting businesses across 50+ countries.</li>
+          <li><strong>End-to-End Support:</strong> From initial discovery to contract completion and ongoing relationship management.</li>
+          <li><strong>Data Security:</strong> Enterprise-grade security ensuring all business information and communications remain confidential.</li>
+        </ul>
+        
+        <h2>Our Values</h2>
+        <p><strong>Trust:</strong> Building confidence through transparency and verification.</p>
+        <p><strong>Innovation:</strong> Continuously improving our platform with cutting-edge technology.</p>
+        <p><strong>Partnership:</strong> Success comes from long-term, mutually beneficial relationships.</p>
+        <p><strong>Excellence:</strong> Commitment to the highest standards in everything we do.</p>
+        
+        <h2>Leadership Team</h2>
+        <p>Our diverse leadership team brings together expertise from manufacturing, technology, finance, and international trade, ensuring we understand the complexities of global commerce and can deliver solutions that truly serve our users' needs.</p>
+        
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="#" class="btn btn-primary" onclick="openModal('contactModal')">Get in Touch</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <!-- How It Works -->
-  <section class="how-it-works" id="how-it-works">
-    <div class="container">
-      <h2>How It Works</h2>
-      <div class="steps">
-        <div class="step animate-on-scroll">
-          <div class="step-number">1</div>
-          <h3>Create Your Profile</h3>
-          <p>Register and complete your company profile with certifications, capabilities, and business requirements.</p>
-        </div>
-        <div class="step animate-on-scroll">
-          <div class="step-number">2</div>
-          <h3>Discover Partners</h3>
-          <p>Use our advanced search and matching system to find verified OEMs or vendors that meet your criteria.</p>
-        </div>
-        <div class="step animate-on-scroll">
-          <div class="step-number">3</div>
-          <h3>Connect & Negotiate</h3>
-          <p>Initiate conversations, request quotes, and negotiate terms through our secure messaging platform.</p>
-        </div>
-        <div class="step animate-on-scroll">
-          <div class="step-number">4</div>
-          <h3>Close Deals</h3>
-          <p>Finalize agreements with built-in contract tools, secure payments, and ongoing relationship management.</p>
+  <!-- Contact Page -->
+  <div id="contact" class="page">
+    <section class="page-content">
+      <div class="container">
+        <h1>Contact Us</h1>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+          <div>
+            <h2>Get in Touch</h2>
+            <p>Have questions about our platform? Want to schedule a demo? Our team is here to help you succeed.</p>
+            
+            <div style="margin: 30px 0;">
+              <h3><i class="fas fa-map-marker-alt" style="color: #0066cc; margin-right: 10px;"></i>Address</h3>
+              <p>123 Business Avenue, Suite 500<br>
+              Mumbai, Maharashtra 400001<br>
+              India</p>
+            </div>
+            
+            <div style="margin: 30px 0;">
+              <h3><i class="fas fa-phone" style="color: #0066cc; margin-right: 10px;"></i>Phone</h3>
+              <p>+91 22 1234 5678<br>
+              +91 98765 43210</p>
+            </div>
+            
+            <div style="margin: 30px 0;">
+              <h3><i class="fas fa-envelope" style="color: #0066cc; margin-right: 10px;"></i>Email</h3>
+              <p>info@sellandsource.com<br>
+              support@sellandsource.com</p>
+            </div>
+            
+            <div style="margin: 30px 0;">
+              <h3><i class="fas fa-clock" style="color: #0066cc; margin-right: 10px;"></i>Business Hours</h3>
+              <p>Monday - Friday: 9:00 AM - 6:00 PM IST<br>
+              Saturday: 10:00 AM - 4:00 PM IST<br>
+              Sunday: Closed</p>
+            </div>
+          </div>
+          
+          <div>
+            <div style="background: #f8fafc; padding: 30px; border-radius: 15px;">
+              <h3>Send us a Message</h3>
+              <form id="contactPageForm">
+                <div class="form-group">
+                  <label for="contactName">Full Name:</label>
+                  <input type="text" id="contactName" required>
+                </div>
+                <div class="form-group">
+                  <label for="contactEmailPage">Email Address:</label>
+                  <input type="email" id="contactEmailPage" required>
+                </div>
+                <div class="form-group">
+                  <label for="contactCompany">Company Name:</label>
+                  <input type="text" id="contactCompany">
+                </div>
+                <div class="form-group">
+                  <label for="contactSubject">Subject:</label>
+                  <select id="contactSubject" required>
+                    <option value="">Select a topic</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="demo">Request Demo</option>
+                    <option value="partnership">Partnership Opportunity</option>
+                    <option value="support">Technical Support</option>
+                    <option value="billing">Billing Question</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="contactMessage">Message:</label>
+                  <textarea id="contactMessage" required placeholder="Tell us how we can help you..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <!-- CTA Section -->
-  <section class="cta">
-    <div class="container">
-      <h2>Ready to Transform Your Business?</h2>
-      <p>Join thousands of successful companies already using Sell & Source to grow their business networks.</p>
-      <a href="#" class="btn btn-primary" onclick="openModal('signupModal')">
-        <i class="fas fa-rocket"></i> Get Started Today
-      </a>
-    </div>
-  </section>
+  <!-- FAQ Section -->
+  <div id="faq" class="page">
+    <section class="page-content">
+      <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What is Sell & Source?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Sell & Source is a comprehensive B2B platform that connects Original Equipment Manufacturers (OEMs) with verified vendors and suppliers globally. We facilitate secure partnerships through advanced matching technology, verification processes, and integrated communication tools.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How does the verification process work?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our verification process includes business registration validation, financial background checks, quality certifications review, and reference verification. The process typically takes 3-5 business days and ensures all partners meet our quality standards.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What are the costs involved?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We offer a free starter plan with basic features. Our Professional plan at $99/month includes unlimited searches, advanced features, and priority support. Enterprise plans are customized based on specific needs.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Which industries do you serve?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We serve all major industries including Automotive, Electronics, Textiles, Machinery, Chemicals, Food & Beverages, Pharmaceuticals, and more. Our platform is designed to accommodate diverse manufacturing and sourcing needs.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How secure is my business information?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We use enterprise-grade encryption, secure servers, and strict access controls. All data is protected under comprehensive privacy policies and international data protection standards. Your business information is never shared without explicit consent.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Can I integrate with my existing systems?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! We offer API integrations and custom solutions for Enterprise clients. You can connect our platform with your ERP, CRM, or procurement systems for seamless workflow integration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Terms of Service Page -->
+  <div id="terms" class="page">
+    <section class="page-content">
+      <div class="container">
+        <h1>Terms of Service</h1>
+        <p><em>Last updated: August 30, 2025</em></p>
+        
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing and using Sell & Source platform, you accept and agree to be bound by the terms and provision of this agreement.</p>
+        
+        <h2>2. Platform Description</h2>
+        <p>Sell & Source is a business-to-business platform that facilitates connections between OEMs and vendors. We provide tools for communication, verification, and business relationship management.</p>
+        
+        <h2>3. User Accounts</h2>
+        <p>Users must provide accurate, current, and complete information during registration. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+        
+        <h2>4. Acceptable Use</h2>
+        <p>Users agree to use the platform only for legitimate business purposes. Prohibited activities include but are not limited to: fraudulent activities, harassment, spam, violation of intellectual property rights, and any illegal activities.</p>
+        
+        <h2>5. Verification Process</h2>
+        <p>All users undergo a verification process. Sell & Source reserves the right to verify submitted information and may request additional documentation. False information may result in account suspension or termination.</p>
+        
+        <h2>6. Fees and Payments</h2>
+        <p>Subscription fees are charged according to the selected plan. Fees are non-refundable except as required by law. We reserve the right to change pricing with 30 days notice.</p>
+        
+        <h2>7. Limitation of Liability</h2>
+        <p>Sell & Source facilitates connections but is not responsible for the quality, safety, legality, or any other aspect of products or services exchanged between users. Users engage with each other at their own risk.</p>
+        
+        <h2>8. Termination</h2>
+        <p>Either party may terminate this agreement at any time. Upon termination, your right to use the platform ceases immediately.</p>
+        
+        <h2>9. Governing Law</h2>
+        <p>These terms are governed by the laws of India. Any disputes will be resolved in the courts of Mumbai, Maharashtra.</p>
+        
+        <h2>10. Contact Information</h2>
+        <p>For questions about these Terms of Service, please contact us at legal@sellandsource.com</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Privacy Policy Page -->
+  <div id="privacy" class="page">
+    <section class="page-content">
+      <div class="container">
+        <h1>Privacy Policy</h1>
+        <p><em>Last updated: August 30, 2025</em></p>
+        
+        <h2>1. Information We Collect</h2>
+        <p>We collect information you provide directly (registration details, company information, communications) and automatically (usage data, device information, cookies).</p>
+        
+        <h2>2. How We Use Your Information</h2>
+        <ul>
+          <li>Provide and maintain our services</li>
+          <li>Process transactions and communications</li>
+          <li>Improve our platform and user experience</li>
+          <li>Send important updates and marketing communications</li>
+          <li>Ensure platform security and prevent fraud</li>
+        </ul>
+        
+        <h2>3. Information Sharing</h2>
+        <p>We do not sell personal information. We may share information with verified partners (with your consent), service providers (under strict agreements), or as required by law.</p>
+        
+        <h2>4. Data Security</h2>
+        <p>We implement industry-standard security measures including encryption, secure servers, and regular security audits to protect your information.</p>
+        
+        <h2>5. Your Rights</h2>
+        <p>You have the right to access, update, delete, or export your personal information. You can also opt-out of marketing communications at any time.</p>
+        
+        <h2>6. Cookies</h2>
+        <p>We use cookies to enhance user experience, analyze platform usage, and provide personalized content. You can manage cookie preferences in your browser settings.</p>
+        
+        <h2>7. International Transfers</h2>
+        <p>Your information may be transferred to and processed in countries other than your residence. We ensure appropriate safeguards are in place for such transfers.</p>
+        
+        <h2>8. Changes to Privacy Policy</h2>
+        <p>We may update this policy periodically. We will notify users of significant changes via email or platform notifications.</p>
+        
+        <h2>9. Contact Us</h2>
+        <p>For privacy-related questions, contact our Data Protection Officer at privacy@sellandsource.com</p>
+      </div>
+    </section>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -763,28 +1086,28 @@
         <div class="footer-column">
           <h3>Platform</h3>
           <ul>
-            <li><a href="#">For OEMs</a></li>
-            <li><a href="#">For Vendors</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">API Documentation</a></li>
+            <li><a onclick="showPage('features')">Features</a></li>
+            <li><a onclick="showPage('pricing')">Pricing</a></li>
+            <li><a onclick="showPage('how-it-works')">How It Works</a></li>
+            <li><a onclick="openModal('signupModal')">Join Platform</a></li>
           </ul>
         </div>
         <div class="footer-column">
           <h3>Company</h3>
           <ul>
-            <li><a href="#" onclick="openModal('aboutModal')">About Us</a></li>
+            <li><a onclick="showPage('about')">About Us</a></li>
+            <li><a onclick="showPage('faq')">FAQ</a></li>
+            <li><a onclick="showPage('contact')">Contact</a></li>
             <li><a href="#">Careers</a></li>
-            <li><a href="#">Press</a></li>
-            <li><a href="#">Blog</a></li>
           </ul>
         </div>
         <div class="footer-column">
-          <h3>Support</h3>
+          <h3>Legal</h3>
           <ul>
-            <li><a href="#" onclick="openModal('contactModal')">Contact Us</a></li>
-            <li><a href="#">Help Center</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
+            <li><a onclick="showPage('privacy')">Privacy Policy</a></li>
+            <li><a onclick="showPage('terms')">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Compliance</a></li>
           </ul>
         </div>
       </div>
@@ -800,7 +1123,7 @@
       <span class="close" onclick="closeModal('signupModal')">&times;</span>
       <h2>Join Sell & Source</h2>
       <div class="success-message" id="signupSuccess">
-        <i class="fas fa-check-circle"></i> Thank you for your interest! We'll contact you soon.
+        <i class="fas fa-check-circle"></i> Thank you for your interest! We'll contact you soon with next steps.
       </div>
       <form id="signupForm">
         <div class="form-group">
@@ -828,21 +1151,56 @@
           <input type="tel" id="phone">
         </div>
         <div class="form-group">
-          <label for="industry">Industry:</label>
+          <label for="industry">Primary Industry:</label>
           <select id="industry" required>
             <option value="">Select industry</option>
             <option value="automotive">Automotive</option>
-            <option value="electronics">Electronics</option>
-            <option value="textiles">Textiles</option>
-            <option value="machinery">Machinery</option>
-            <option value="chemicals">Chemicals</option>
+            <option value="electronics">Electronics & Technology</option>
+            <option value="textiles">Textiles & Apparel</option>
+            <option value="machinery">Industrial Machinery</option>
+            <option value="chemicals">Chemicals & Materials</option>
             <option value="food">Food & Beverages</option>
+            <option value="pharmaceutical">Pharmaceutical</option>
+            <option value="aerospace">Aerospace & Defense</option>
+            <option value="construction">Construction & Infrastructure</option>
             <option value="other">Other</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="requirements">Brief Description of Requirements:</label>
-          <textarea id="requirements" placeholder="Tell us about your sourcing needs or what you offer..."></textarea>
+          <label for="country">Country:</label>
+          <select id="country" required>
+            <option value="">Select country</option>
+            <option value="IN">India</option>
+            <option value="CN">China</option>
+            <option value="US">United States</option>
+            <option value="DE">Germany</option>
+            <option value="JP">Japan</option>
+            <option value="KR">South Korea</option>
+            <option value="GB">United Kingdom</option>
+            <option value="IT">Italy</option>
+            <option value="FR">France</option>
+            <option value="BR">Brazil</option>
+            <option value="MX">Mexico</option>
+            <option value="TH">Thailand</option>
+            <option value="VN">Vietnam</option>
+            <option value="OTHER">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="requirements">Brief Description of Your Business/Requirements:</label>
+          <textarea id="requirements" placeholder="Tell us about your company, products, or sourcing needs..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="annualVolume">Estimated Annual Volume/Value:</label>
+          <select id="annualVolume">
+            <option value="">Select range</option>
+            <option value="under-100k">Under $100,000</option>
+            <option value="100k-500k">$100,000 - $500,000</option>
+            <option value="500k-1m">$500,000 - $1M</option>
+            <option value="1m-5m">$1M - $5M</option>
+            <option value="5m-10m">$5M - $10M</option>
+            <option value="over-10m">Over $10M</option>
+          </select>
         </div>
         <button type="submit" class="submit-btn">
           <span id="submitText">Join Platform</span>
@@ -856,9 +1214,9 @@
   <div id="contactModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal('contactModal')">&times;</span>
-      <h2>Contact Us</h2>
+      <h2>Quick Contact</h2>
       <div class="success-message" id="contactSuccess">
-        <i class="fas fa-check-circle"></i> Thank you for your message! We'll get back to you within 24 hours.
+        <i class="fas fa-check-circle"></i> Thank you! We'll get back to you within 24 hours.
       </div>
       <form id="contactForm">
         <div class="form-group">
@@ -871,7 +1229,14 @@
         </div>
         <div class="form-group">
           <label for="subject">Subject:</label>
-          <input type="text" id="subject" required>
+          <select id="subject" required>
+            <option value="">Select topic</option>
+            <option value="demo">Request Demo</option>
+            <option value="pricing">Pricing Information</option>
+            <option value="partnership">Partnership</option>
+            <option value="support">Support</option>
+            <option value="other">Other</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="message">Message:</label>
@@ -885,30 +1250,24 @@
     </div>
   </div>
 
-  <!-- About Modal -->
-  <div id="aboutModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('aboutModal')">&times;</span>
-      <h2>About Sell & Source</h2>
-      <p style="margin-bottom: 20px;">Sell & Source is a revolutionary B2B platform designed to bridge the gap between Original Equipment Manufacturers (OEMs) and vendors worldwide.</p>
-      
-      <h3 style="margin-bottom: 10px; color: #0066cc;">Our Mission</h3>
-      <p style="margin-bottom: 20px;">To create a transparent, efficient, and secure marketplace where businesses can discover, connect, and collaborate with confidence.</p>
-      
-      <h3 style="margin-bottom: 10px; color: #0066cc;">What We Offer</h3>
-      <ul style="margin-left: 20px; margin-bottom: 20px;">
-        <li>Verified supplier and OEM networks</li>
-        <li>Advanced search and matching algorithms</li>
-        <li>Secure communication and transaction tools</li>
-        <li>Market intelligence and analytics</li>
-        <li>Quality assurance and compliance support</li>
-      </ul>
-      
-      <p>Founded in 2025, we're committed to transforming how businesses source and sell globally.</p>
-    </div>
-  </div>
-
   <script>
+    // Page navigation
+    function showPage(pageId) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      
+      // Show selected page
+      document.getElementById(pageId).classList.add('active');
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+      
+      // Close mobile menu if open
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.remove('active');
+    }
+
     // Mobile menu toggle
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
@@ -946,6 +1305,20 @@
       });
     }
 
+    // FAQ Toggle
+    function toggleFaq(element) {
+      const answer = element.nextElementSibling;
+      const icon = element.querySelector('i');
+      
+      answer.classList.toggle('active');
+      
+      if (answer.classList.contains('active')) {
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+
     // Form submissions
     document.getElementById('signupForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -956,3 +1329,248 @@
       // Show loading
       submitBtn.style.display = 'none';
       loading.style.display = 'inline-block';
+      
+      // Simulate form submission
+      setTimeout(() => {
+        loading.style.display = 'none';
+        submitBtn.style.display = 'inline';
+        successMsg.style.display = 'block';
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          this.reset();
+          successMsg.style.display = 'none';
+        }, 3000);
+      }, 2000);
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('contactSubmitText');
+      const loading = document.getElementById('contactSubmitLoading');
+      const successMsg = document.getElementById('contactSuccess');
+      
+      // Show loading
+      submitBtn.style.display = 'none';
+      loading.style.display = 'inline-block';
+      
+      // Simulate form submission
+      setTimeout(() => {
+        loading.style.display = 'none';
+        submitBtn.style.display = 'inline';
+        successMsg.style.display = 'block';
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          this.reset();
+          successMsg.style.display = 'none';
+        }, 3000);
+      }, 2000);
+    });
+
+    // Contact page form
+    document.getElementById('contactPageForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show home page by default
+      showPage('home');
+    });
+  </script>
+</body>
+</html>openModal('signupModal', 'oem')">
+              <i class="fas fa-industry"></i> I'm an OEM
+            </a>
+            <a href="#" class="btn btn-secondary" onclick="openModal('signupModal', 'vendor')">
+              <i class="fas fa-truck"></i> I'm a Vendor
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Active OEMs</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">2,000+</span>
+              <span class="stat-label">Verified Vendors</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Countries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Features Preview -->
+    <section class="features">
+      <div class="container">
+        <h2>Why Choose Sell & Source?</h2>
+        <p class="features-subtitle">Powerful tools designed to streamline your sourcing and selling processes</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-shield-alt feature-icon"></i>
+            <h3>Verified Partners</h3>
+            <p>All partners undergo thorough verification including business licenses and quality assessments.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-search feature-icon"></i>
+            <h3>Smart Matching</h3>
+            <p>AI-powered algorithm connects you with the most relevant partners based on your requirements.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-globe feature-icon"></i>
+            <h3>Global Reach</h3>
+            <p>Access manufacturers and suppliers from over 50 countries with real-time communication.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Features Page -->
+  <div id="features" class="page">
+    <section class="page-content">
+      <div class="container">
+        <h1>Platform Features</h1>
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-shield-alt feature-icon"></i>
+            <h3>Verified Partners</h3>
+            <p>Comprehensive verification process including business registration, certifications, quality audits, and financial background checks.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-search feature-icon"></i>
+            <h3>Advanced Search</h3>
+            <p>Filter by industry, location, certifications, capacity, and more. Save searches and get notifications for new matches.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-globe feature-icon"></i>
+            <h3>Global Network</h3>
+            <p>Connect with partners across 50+ countries with multi-language support and local market expertise.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-comments feature-icon"></i>
+            <h3>Secure Messaging</h3>
+            <p>Built-in communication tools with file sharing, video calls, and automated translation services.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-chart-line feature-icon"></i>
+            <h3>Market Analytics</h3>
+            <p>Real-time market data, pricing trends, supplier performance metrics, and competitive intelligence.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-file-contract feature-icon"></i>
+            <h3>Contract Management</h3>
+            <p>Digital contract creation, e-signature integration, and automated compliance tracking.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- How It Works Page -->
+  <div id="how-it-works" class="page">
+    <section class="page-content">
+      <div class="container">
+        <h1>How Sell & Source Works</h1>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Create Your Profile</h3>
+            <p>Register your company with detailed information about capabilities, certifications, and business requirements. Upload necessary documents for verification.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Get Verified</h3>
+            <p>Our team reviews your profile and documentation. Verified partners receive badges and priority visibility in search results.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Search & Discover</h3>
+            <p>Use advanced filters to find potential partners. Browse profiles, compare capabilities, and review ratings from other users.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Connect & Communicate</h3>
+            <p>Send connection requests, exchange messages, share documents, and schedule video meetings through our platform.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">5</div>
+            <h3>Negotiate & Contract</h3>
+            <p>Discuss terms, negotiate prices, and create binding contracts using our integrated legal and payment tools.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">6</div>
+            <h3>Manage Relationships</h3>
+            <p>Track ongoing projects, monitor performance, provide feedback, and build long-term business partnerships.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Pricing Page -->
+  <div id="pricing" class="page">
+    <section class="page-content">
+      <div class="container">
+        <h1>Choose Your Plan</h1>
+        <p style="text-align: center; color: #6b7280; margin-bottom: 40px;">Select the perfect plan for your business needs</p>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3 class="plan-name">Starter</h3>
+            <div class="plan-price">Free</div>
+            <div class="plan-period">Forever</div>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Basic company profile</li>
+              <li><i class="fas fa-check"></i> Limited search results (10/month)</li>
+              <li><i class="fas fa-check"></i> Basic messaging</li>
+              <li><i class="fas fa-check"></i> Community support</li>
+            </ul>
+            <a href="#" class="btn btn-primary" onclick="openModal('signupModal')">Get Started</a>
+          </div>
+          <div class="pricing-card featured">
+            <h3 class="plan-name">Professional</h3>
+            <div class="plan-price">$99</div>
+            <div class="plan-period">per month</div>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Enhanced company profile</li>
+              <li><i class="fas fa-check"></i> Unlimited searches</li>
+              <li><i class="fas fa-check"></i> Advanced messaging & video calls</li>
+              <li><i class="fas fa-check"></i> Market analytics</li>
+              <li><i class="fas fa-check"></i> Priority support</li>
+              <li><i class="fas fa-check"></i> Contract management tools</li>
+            </ul>
+            <a href="#" class="btn btn-primary" onclick="openModal('signupModal')">Start Free Trial</a>
+          </div>
+          <div class="pricing-card">
+            <h3 class="plan-name">Enterprise</h3>
+            <div class="plan-price">Custom</div>
+            <div class="plan-period">Contact us</div>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Everything in Professional</li>
+              <li><i class="fas fa-check"></i> Custom integrations</li>
+              <li><i class="fas fa-check"></i> Dedicated account manager</li>
+              <li><i class="fas fa-check"></i> Advanced analytics</li>
+              <li><i class="fas fa-check"></i> White-label options</li>
+              <li><i class="fas fa-check"></i> 24/7 priority support</li>
+            </ul>
+            <a href="#" class="btn btn-primary" onclick="
