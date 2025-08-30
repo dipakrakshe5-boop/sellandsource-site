@@ -40,14 +40,25 @@
 
     .navbar {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       position: relative;
     }
 
-    .logo {
+    .nav-center {
+      display: flex;
+      list-style: none;
+      align-items: center;
       position: absolute;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-right {
+      margin-left: auto;
+    }
+
+    .logo {
       display: flex;
       align-items: center;
       text-decoration: none;
@@ -65,11 +76,11 @@
       align-items: center;
     }
 
-    .nav-links li {
-      margin-left: 15px;
+    .nav-center li {
+      margin: 0 15px;
     }
 
-    .nav-links a {
+    .nav-center a {
       text-decoration: none;
       color: #555;
       font-weight: 500;
@@ -84,12 +95,12 @@
       text-align: center;
     }
 
-    .nav-links a i {
+    .nav-center a i {
       font-size: 1.2rem;
       margin-bottom: 2px;
     }
 
-    .nav-links a:hover {
+    .nav-center a:hover {
       color: #0066cc;
       background: #f0f8ff;
     }
@@ -97,19 +108,11 @@
     .sign-up-btn {
       background: #0066cc;
       color: white !important;
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: 25px;
       font-weight: 600;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.85rem;
-    }
-
-    .sign-up-btn i {
-      font-size: 1.2rem;
-      margin-bottom: 2px;
+      text-decoration: none;
+      transition: background 0.3s;
     }
 
     .sign-up-btn:hover {
@@ -608,22 +611,19 @@
   <header>
     <div class="container">
       <nav class="navbar">
-        <a href="#" class="logo">
+        <div class="logo">
           <img src="Final logo.png" alt="Sell & Source Logo">
-        </a>
-        <div class="menu-toggle" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
         </div>
-        <ul class="nav-links" id="navLinks">
+        <ul class="nav-center">
           <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
           <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
           <li><a href="#how-it-works"><i class="fas fa-cogs"></i> How It Works</a></li>
           <li><a href="#" onclick="openModal('aboutModal')"><i class="fas fa-info-circle"></i> About</a></li>
           <li><a href="#" onclick="openModal('contactModal')"><i class="fas fa-envelope"></i> Contact</a></li>
-          <li><a href="#" class="sign-up-btn" onclick="openModal('signupModal')"><i class="fas fa-user-plus"></i> Join Now</a></li>
         </ul>
+        <div class="nav-right">
+          <a href="#" class="sign-up-btn" onclick="openModal('signupModal')">Join Now</a>
+        </div>
       </nav>
     </div>
   </header>
